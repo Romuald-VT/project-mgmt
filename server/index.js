@@ -8,8 +8,8 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(clerkMiddleware())
 app.use('/api/inngest',serve({client: inngest,functions,signingKey:process.env.INNGEST_SIGNING_KEY}))
+app.use(clerkMiddleware())
 
 app.get('/', (req, res) => {
   res.send('Server is live !')
